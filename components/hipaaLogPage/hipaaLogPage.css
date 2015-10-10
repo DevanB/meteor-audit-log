@@ -1,0 +1,9 @@
+#hipaaLogPage{
+  background-color: white;
+  padding-top: 80px;
+}
+#hipaaLogPage #hipaaLogTitle{
+  left: 30px;
+  position: absolute;
+  text-align: left;
+}

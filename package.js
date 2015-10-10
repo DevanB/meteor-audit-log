@@ -9,53 +9,47 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2.0.1');
 
-  api.use('ecmascript');
-  api.use('momentjs:moment@2.10.6', 'client');
-  
-  //huh?
-  // api.use('meteor-platform@1.2.2');
-  //normalize
-  api.use('iron:router@1.0.4', 'client');
-
-  //remove all less/scss and go with straight css
-  api.use('grove:less@0.1.1', 'client');
-  //up-to-date?
-  api.use('fortawesome:fontawesome@4.4.0', 'client');
-
-  //necessary?
-  api.use('clinical:auto-resizing@0.1.2', 'client');
+  api.use([
+    'session',
+    'templating',
+    'ecmascript',
+    'nicolaslopezj:router-layer@0.0.11'
+  ]);
+  api.use([
+    'momentjs:moment@2.10.6',
+    'fortawesome:fontawesome@4.4.0',
+  ], 'client');
 
   //update wording
-  api.addFiles('lib/HipaaLogger.js', ["client", "server"]);
-  //update wording
-  api.addFiles('lib/HipaaAuditLog.js', ["client", "server"]);
+  api.addFiles([
+    'lib/HipaaLogger.js',
+    'lib/HipaaAuditLog.js'
+  ],['client', 'server']);
 
   //update wording
-  api.addFiles('hipaa.shared.js', ["client", "server"]);
+  api.addFiles('hipaa.shared.js', ['client', 'server']);
+  api.addFiles('hipaa.server.js', 'server');
 
   //update wording
-  api.addFiles('hipaa.server.js', "server");
+  api.addFiles([
+    'components/hipaaRibbon/hipaaRibbon.html',
+    'components/hipaaRibbon/hipaaRibbon.js',
+    'components/hipaaRibbon/hipaaRibbon.css'
+  ], 'client');
 
   //update wording
-  api.addFiles('components/hipaaRibbon/hipaaRibbon.html', "client");
-  //update wording and to es6?
-  api.addFiles('components/hipaaRibbon/hipaaRibbon.js', "client");
-  //turn into css
-  api.addFiles('components/hipaaRibbon/hipaaRibbon.less', "client");
+  api.addFiles([
+    'components/hipaaAuditLog/hipaaAuditLog.html',
+    'components/hipaaAuditLog/hipaaAuditLog.js',
+    'components/hipaaAuditLog/hipaaAuditLog.css'
+  ], 'client');
 
   //update wording
-  api.addFiles('components/hipaaAuditLog/hipaaAuditLog.html', "client");
-  //update wording and to es6?
-  api.addFiles('components/hipaaAuditLog/hipaaAuditLog.js', "client");
-  //turn into css
-  api.addFiles('components/hipaaAuditLog/hipaaAuditLog.less', "client");
-
-  //update wording
-  api.addFiles('components/hipaaLogPage/hipaaLogPage.html', "client");
-  //update wording and to es6?
-  api.addFiles('components/hipaaLogPage/hipaaLogPage.js', "client");
-  //turn into css
-  api.addFiles('components/hipaaLogPage/hipaaLogPage.less', "client");
+  api.addFiles([
+    'components/hipaaLogPage/hipaaLogPage.html',
+    'components/hipaaLogPage/hipaaLogPage.js',
+    'components/hipaaLogPage/hipaaLogPage.css'
+  ], 'client');
 
   //update wording
   api.export('hipaaLog');
@@ -77,10 +71,7 @@ Package.onUse(function(api) {
 // Package.onTest(function (api) {
 //   api.use('tinytest');
 //
-//   api.use('meteor-platform@1.2.2');
-//   api.use('iron:router@1.0.4', 'client');
-//   api.use('mrt:moment@2.8.1', 'client');
-//   api.use('grove:less@0.1.1', 'client');
+//   api.use('momentjs:moment@2.10.6', 'client');
 //   api.use('fortawesome:fontawesome@4.4.0', 'client');
 //   api.use('clinical:hipaa-audit-log');
 //   api.use('clinical:verification');

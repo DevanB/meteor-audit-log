@@ -1,0 +1,66 @@
+#hipaaAuditLog{
+  padding-left: 0px !important;
+}
+#hipaaAuditLog li{
+  list-style: none;
+  padding-top: 5px;
+  padding-left: 20px;
+}
+#hipaaAuditLog .gray{
+  color: gray;
+}
+#hipaaAuditLog .lightgray{
+  color: #aaaaaa;
+}
+#hipaaAuditLog .iconColumn{
+  width: 10%;
+}
+#hipaaAuditLog .messageClumn{
+  width: 80%;
+}
+#hipaaAuditLog .fa{
+  padding-right: 12px;
+  padding-left: 4px;
+  padding-top: 6px;
+  width: 40px;
+}
+#hipaaAuditLog .fa-recycle{
+  padding-top: 8px;
+}
+#hipaaAuditLog .fa-plus-circle{
+  padding-left: 6px !important;
+}
+#hipaaAuditLog .fa-circle-o{
+  padding-left: 6px !important;
+}
+#hipaaAuditLog .fa-minus-circle{
+  padding-left: 6px !important;
+}
+#hipaaAuditLog .fa-database{
+  padding-left: 7px !important;
+}
+#hipaaAuditLog .fa-pencil{
+  padding-left: 6px !important;
+}
+#hipaaAuditLog .fa-code-fork{
+  padding-left: 12px !important;
+}
+#hipaaAuditLog .fa-warning{
+  padding-left: 5px !important
+}
+#hipaaAuditLog .fa-rss{
+  padding-left: 7px !important;
+}
+#hipaaAuditLog .hipaaAuditItem{
+  border-top: 1px solid lightgray;
+  padding-bottom: 10px;
+}
+#hipaaAuditLog .hipaaAuditItem:nth-child(1){
+  border-top: 0px;
+}
+#hipaaAuditLog .media-body{
+  padding-bottom: 5px;
+}
+#hipaaAuditLog #hipaaAuditLog{
+  width: 100%;
+}
