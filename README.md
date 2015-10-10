@@ -1,2 +1,1 @@
-# meteor-audit-log
-Logging/Auditing for Meteor applications based off of clinical-hipaa-audit-log
+This package is loosely based on the clinical-hipaa-audit-log package.
