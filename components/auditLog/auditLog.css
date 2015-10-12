@@ -1,66 +1,66 @@
-#hipaaAuditLog{
+#auditLog{
   padding-left: 0px !important;
 }
-#hipaaAuditLog li{
+#uditLog li{
   list-style: none;
   padding-top: 5px;
   padding-left: 20px;
 }
-#hipaaAuditLog .gray{
+#auditLog .gray{
   color: gray;
 }
-#hipaaAuditLog .lightgray{
+#auditLog .lightgray{
   color: #aaaaaa;
 }
-#hipaaAuditLog .iconColumn{
+#auditLog .iconColumn{
   width: 10%;
 }
-#hipaaAuditLog .messageClumn{
+#auditLog .messageClumn{
   width: 80%;
 }
-#hipaaAuditLog .fa{
+#auditLog .fa{
   padding-right: 12px;
   padding-left: 4px;
   padding-top: 6px;
   width: 40px;
 }
-#hipaaAuditLog .fa-recycle{
+#auditLog .fa-recycle{
   padding-top: 8px;
 }
-#hipaaAuditLog .fa-plus-circle{
+#auditLog .fa-plus-circle{
   padding-left: 6px !important;
 }
-#hipaaAuditLog .fa-circle-o{
+#auditLog .fa-circle-o{
   padding-left: 6px !important;
 }
-#hipaaAuditLog .fa-minus-circle{
+#auditLog .fa-minus-circle{
   padding-left: 6px !important;
 }
-#hipaaAuditLog .fa-database{
+#auditLog .fa-database{
   padding-left: 7px !important;
 }
-#hipaaAuditLog .fa-pencil{
+#auditLog .fa-pencil{
   padding-left: 6px !important;
 }
-#hipaaAuditLog .fa-code-fork{
+#auditLog .fa-code-fork{
   padding-left: 12px !important;
 }
-#hipaaAuditLog .fa-warning{
+#auditLog .fa-warning{
   padding-left: 5px !important
 }
-#hipaaAuditLog .fa-rss{
+#auditLog .fa-rss{
   padding-left: 7px !important;
 }
-#hipaaAuditLog .hipaaAuditItem{
+#auditLog .auditItem{
   border-top: 1px solid lightgray;
   padding-bottom: 10px;
 }
-#hipaaAuditLog .hipaaAuditItem:nth-child(1){
+#auditLog .auditItem:nth-child(1){
   border-top: 0px;
 }
-#hipaaAuditLog .media-body{
+#auditLog .media-body{
   padding-bottom: 5px;
 }
-#hipaaAuditLog #hipaaAuditLog{
+#auditLog #auditLog{
   width: 100%;
 }

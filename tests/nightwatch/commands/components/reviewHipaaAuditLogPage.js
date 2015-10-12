@@ -2,8 +2,8 @@
 
 exports.command = function() {
   this
-    .verify.elementPresent("#hipaaLogPage")
-    .verify.elementPresent("#hipaaAuditLog")
+    .verify.elementPresent("#logPage")
+    .verify.elementPresent("#auditLog")
 
-  return this; 
+  return this;
 };

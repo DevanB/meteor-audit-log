@@ -1,5 +1,5 @@
-Hipaa =  new Meteor.Collection("hipaa");
-Hipaa.allow({
+Logs =  new Meteor.Collection("logs");
+Logs.allow({
   insert: function(){
     return true;
   },

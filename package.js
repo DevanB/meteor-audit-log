@@ -20,52 +20,39 @@ Package.onUse(function(api) {
     'fortawesome:fontawesome@4.4.0',
   ], 'client');
 
-  //update wording
   api.addFiles([
-    'lib/HipaaLogger.js',
-    'lib/HipaaAuditLog.js'
+    'lib/Logger.js',
+    'lib/AuditLog.js'
   ],['client', 'server']);
 
-  //update wording
-  api.addFiles('hipaa.shared.js', ['client', 'server']);
-  api.addFiles('hipaa.server.js', 'server');
+  api.addFiles('shared.js', ['client', 'server']);
+  api.addFiles('server.js', 'server');
 
-  //update wording
   api.addFiles([
-    'components/hipaaRibbon/hipaaRibbon.html',
-    'components/hipaaRibbon/hipaaRibbon.js',
-    'components/hipaaRibbon/hipaaRibbon.css'
+    'components/ribbon/ribbon.html',
+    'components/ribbon/ribbon.js',
+    'components/ribbon/ribbon.css'
+  ], 'client');
+  api.addFiles([
+    'components/auditLog/auditLog.html',
+    'components/auditLog/auditLog.js',
+    'components/auditLog/auditLog.css'
+  ], 'client');
+  api.addFiles([
+    'components/logPage/logPage.html',
+    'components/logPage/logPage.css'
   ], 'client');
 
-  //update wording
-  api.addFiles([
-    'components/hipaaAuditLog/hipaaAuditLog.html',
-    'components/hipaaAuditLog/hipaaAuditLog.js',
-    'components/hipaaAuditLog/hipaaAuditLog.css'
-  ], 'client');
+  api.export('log');
+  api.export('ribbon');
 
-  //update wording
-  api.addFiles([
-    'components/hipaaLogPage/hipaaLogPage.html',
-    'components/hipaaLogPage/hipaaLogPage.js',
-    'components/hipaaLogPage/hipaaLogPage.css'
-  ], 'client');
-
-  //update wording
-  api.export('hipaaLog');
-  //update wording
-  api.export('hipaaRibbon');
-
-  //update wording
-  api.export('Hipaa');
-  //update wording
-  api.export('HipaaLogger');
-  //update wording
-  api.export('HipaaAuditLog');
-
-  //Add NPM for npm diff
+  api.export('Logger');
+  api.export('AuditLog');
 });
 
+Npm.depends({
+  "diff": "2.1.3"
+});
 
 //fix all of this junk
 // Package.onTest(function (api) {

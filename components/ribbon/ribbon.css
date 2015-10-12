@@ -1,17 +1,17 @@
-#hipaaRibbon{
+#ribbon{
   position: static;
   width: 100%;
   padding-top: 10px;
   height: 60px;
   background-color: lightgray;
 }
-#hipaaRibbon input[type="date"]{
+#ribbon input[type="date"]{
   padding-left: 10px;
 }
-#hipaaRibbon select{
+#ribbon select{
   display: inline-block;
 }
-#hipaaRibbon #hipaaSearchFilter{
+#ribbon #searchFilter{
   color: black;
 }
 .form-control{

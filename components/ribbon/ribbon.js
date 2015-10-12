@@ -1,6 +1,6 @@
-Template.hipaaRibbon.events({
-  'keyup #hipaaSearchFilter': function () {
-    Session.set("hipaaSearchFilter", $('#hipaaSearchFilter').val());
+Template.ribbon.events({
+  'keyup #searchFilter': function () {
+    Session.set("searchFilter", $('#searchFilter').val());
   },
   "change #beginDateInput": function (event, template) {
     Session.set("beginDateFilter", $('#beginDateInput').val() + "T00:00:00.000Z");
@@ -10,16 +10,16 @@ Template.hipaaRibbon.events({
   },
 
   'click #filterCreatedButton': function () {
-    Session.set("hipaaTypeFilter", 'create');
+    Session.set("typeFilter", 'create');
   },
   'click #filterModifiedButton': function () {
-    Session.set("hipaaTypeFilter", 'modify');
+    Session.set("typeFilter", 'modify');
   },
   'click #filterViewedButton': function () {
-    Session.set("hipaaTypeFilter", 'viewed');
+    Session.set("typeFilter", 'viewed');
   },
   'click #filterAllButton': function () {
-    Session.set("hipaaTypeFilter", '');
+    Session.set("typeFilter", '');
   }
 });
 
@@ -28,11 +28,12 @@ var ribbonBreakPoint = 760;
 
 Meteor.startup(function(){
   $(window).resize(function(evt) {
-    Session.set("ribbonWidth", $('#hipaaRibbon').width());
+    Session.set("ribbonWidth", $('#ribbon').width());
   });
 });
 
-Template.hipaaRibbon.helpers({
+//@TODO: migrate to flexbox
+Template.ribbon.helpers({
   getSearchFilterStyling: function () {
     // spacing between inputs should be 20px each
     // if the overall width of the audit log is less than N, show the fullwidth
@@ -64,31 +65,31 @@ Template.hipaaRibbon.helpers({
     }
   },
   getRibbonClass: function () {
-    var hipaaAuditLog = Session.get('HipaaAuditLogConfig');
-    if (hipaaAuditLog && hipaaAuditLog.classes) {
-      return hipaaAuditLog.classes.ribbon;
+    var auditLog = Session.get('AuditLogConfig');
+    if (auditLog && auditLog.classes) {
+      return auditLog.classes.ribbon;
     } else {
       return null;
     }
   },
   getSelectClass: function () {
-    var hipaaAuditLog = Session.get('HipaaAuditLogConfig');
-    if (hipaaAuditLog && hipaaAuditLog.classes) {
-      return hipaaAuditLog.classes.select;
+    var auditLog = Session.get('AuditLogConfig');
+    if (auditLog && auditLog.classes) {
+      return auditLog.classes.select;
     } else {
       return null;
     }
   },
   getInputClass: function () {
-    var hipaaAuditLog = Session.get('HipaaAuditLogConfig');
-    if (hipaaAuditLog && hipaaAuditLog.classes) {
-      return hipaaAuditLog.classes.input;
+    var auditLog = Session.get('AuditLogConfig');
+    if (auditLog && auditLog.classes) {
+      return auditLog.classes.input;
     } else {
       return null;
     }
   },
-  getHipaaSearchFilter: function () {
-    return Session.get('hipaaSearchFilter');
+  getSearchFilter: function () {
+    return Session.get('searchFilter');
   },
   getBeginDate: function () {
     return moment(Session.get("beginDateFilter")).format("YYYY-MM-DD");

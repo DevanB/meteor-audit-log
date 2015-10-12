@@ -1,41 +1,41 @@
-//Hipaa =  new Meteor.Collection("hipaa");
-
-Session.setDefault("hipaaSearchFilter", '');
-Session.setDefault("hipaaTypeFilter", '');
+//@TODO: migrate searchFilter, typeFilter, beginDateFilter, and endDateFilter to reactiveVars
+Session.setDefault("searchFilter", '');
+Session.setDefault("typeFilter", '');
 
 // search window defaults to seven days in the past and one day in the future
 Session.setDefault("beginDateFilter", new Date(moment().subtract(7, "days")).toISOString());
 Session.setDefault("endDateFilter", new Date(moment().add(1, "days")).toISOString());
 
-
-Meteor.subscribe('hipaa');
-
-Template.hipaaAuditLog.onRendered(function () {
-  Session.set("ribbonWidth", $('#hipaaRibbon').width());
+Template.auditLog.onCreated(function(){
+  Meteor.subscribe('all-logs');
 });
 
-Template.hipaaAuditLog.helpers({
-  getHipaaSearchFilter: function () {
-    return Session.get('hipaaSearchFilter');
+Template.auditLog.onRendered(function () {
+  Session.set("ribbonWidth", $('#ribbon').width());
+});
+
+Template.auditLog.helpers({
+  getSearchFilter: function () {
+    return Session.get('searchFilter');
   },
-  hipaaAudit: function () {
-    return Hipaa.find({
+  audit: function () {
+    return Logs.find({
       $or: [
         {
           userName: {
-            $regex: Session.get('hipaaSearchFilter'),
+            $regex: Session.get('searchFilter'),
             $options: 'i'
           }
         },
         {
           patientName: {
-            $regex: Session.get('hipaaSearchFilter'),
+            $regex: Session.get('searchFilter'),
             $options: 'i'
           }
         }
       ],
       eventType: {
-        $regex: Session.get("hipaaTypeFilter"),
+        $regex: Session.get("typeFilter"),
         $options: 'i'
       },
       timestamp: {
@@ -50,21 +50,17 @@ Template.hipaaAuditLog.helpers({
   }
 });
 
-Template.hipaaAuditLog.events({
-  "keyup #hipaaSearchFilter": function (event, template) {
-    Session.set("hipaaSearchFilter", $('#hipaaSearchFilter').val());
+Template.auditLog.events({
+  "keyup #searchFilter": function (event, template) {
+    Session.set("searchFilter", $('#searchFilter').val());
   }
 });
 
-
-//==================================================================================================
-// HIPAA EVENT RECORD
-
-Template.hipaaEntry.helpers({
+Template.entry.helpers({
   getHighlightColor: function () {
-    var hipaaAuditLog = Session.get('HipaaAuditLogConfig');
-    if (hipaaAuditLog) {
-      return "color:" + hipaaAuditLog.highlightColor;
+    var auditLog = Session.get('AuditLogConfig');
+    if (auditLog) {
+      return "color:" + auditLog.highlightColor;
     } else {
       return null;
     }

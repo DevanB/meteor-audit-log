@@ -1,19 +1,19 @@
-<template name="hipaaAuditLog">
-  <ul id="hipaaAuditLog" class="list-group">
-    {{#each hipaaAudit}}
-      {{> hipaaEntry}}
+<template name="auditLog">
+  <ul id="auditLog" class="list-group">
+    {{#each audit}}
+      {{> entry}}
     {{/each}}
   </ul>
 </template>
 
-<template name="hipaaEntry">
+<template name="entry">
   {{#if logMessageType 'init'}}
-    <li class="hipaaAuditItem list-group-item">
+    <li class="auditItem list-group-item">
       <div class="media">
         <i class="pull-left fa fa-gears fa-2x lightgray"></i>
         <div class="media-body">
           <span class="small gray">{{entryTimestamp}}</span><br>
-          <span style="{{getHighlightColor}}">{{userName}}</span> initialized HIPAA Audit Log.
+          <span style="{{getHighlightColor}}">{{userName}}</span> initialized Audit Log.
         </div>
       </div>
     </li>
@@ -21,7 +21,7 @@
 
 
   {{#if logMessageType 'access'}}
-    <li class="hipaaAuditItem list-group-item">
+    <li class="auditItem list-group-item">
       <div class="media">
         <i class="pull-left fa fa-database fa-2x lightgray"></i>
         <div class="media-body">
@@ -34,7 +34,7 @@
 
 
   {{#if logMessageType 'create'}}
-    <li class="hipaaAuditItem list-group-item">
+    <li class="auditItem list-group-item">
       <div class="media">
         <i class="pull-left fa fa-plus-circle fa-2x lightgray"></i>
         <div class="media-body">
@@ -51,7 +51,7 @@
 
 
   {{#if logMessageType 'modify'}}
-    <li class="hipaaAuditItem list-group-item">
+    <li class="auditItem list-group-item">
       <div class="media">
         <i class="pull-left fa fa-pencil fa-2x lightgray"></i>
         <div class="media-body">
@@ -69,7 +69,7 @@
 
 
   {{#if logMessageType 'clone'}}
-    <li class="hipaaAuditItem list-group-item">
+    <li class="auditItem list-group-item">
       <div class="media">
         <i class="pull-left fa fa-code-fork fa-2x lightgray"></i>
         <div class="media-body">
@@ -82,7 +82,7 @@
 
 
   {{#if logMessageType 'delete'}}
-    <li class="hipaaAuditItem list-group-item">
+    <li class="auditItem list-group-item">
       <div class="media">
         <i class="pull-left fa fa-minus-circle fa-2x lightgray"></i>
         <div class="media-body">
@@ -95,7 +95,7 @@
 
 
   {{#if logMessageType 'denied'}}
-    <li class="hipaaAuditItem list-group-item">
+    <li class="auditItem list-group-item">
       <div class="media">
         <i class="pull-left fa fa-warning fa-2x lightgray"></i>
         <div class="media-body">
@@ -108,7 +108,7 @@
 
 
   {{#if logMessageType 'viewed'}}
-    <li class="hipaaAuditItem list-group-item">
+    <li class="auditItem list-group-item">
       <div class="media">
         <i class="pull-left fa fa-eye fa-2x lightgray"></i>
         <div class="media-body">
@@ -125,7 +125,7 @@
 
 
   {{#if logMessageType 'publish'}}
-    <li class="hipaaAuditItem list-group-item">
+    <li class="auditItem list-group-item">
       <div class="media">
         <i class="pull-left fa fa-rss fa-2x lightgray"></i>
         <div class="media-body">
@@ -138,7 +138,7 @@
 
 
   {{#if logMessageType 'unpublish'}}
-    <li class="hipaaAuditItem list-group-item">
+    <li class="auditItem list-group-item">
       <div class="media">
         <i class="pull-left fa fa-circle-o fa-2x lightgray"></i>
         <div class="media-body">
@@ -151,7 +151,7 @@
 
 
   {{#if logMessageType 'error'}}
-    <li class="hipaaAuditItem list-group-item">
+    <li class="auditItem list-group-item">
       <div class="media">
         <i class="pull-left fa fa-bomb fa-2x lightgray"></i>
         <div class="media-body">

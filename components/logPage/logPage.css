@@ -1,8 +1,8 @@
-#hipaaLogPage{
+#logPage{
   background-color: white;
   padding-top: 80px;
 }
-#hipaaLogPage #hipaaLogTitle{
+#logPage #logTitle{
   left: 30px;
   position: absolute;
   text-align: left;
