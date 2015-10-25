@@ -58,7 +58,7 @@ Package.onTest(function (api) {
 
   api.use('momentjs:moment@2.10.6', 'client');
   api.use('fortawesome:fontawesome@4.4.0', 'client');
-  api.use('devanb:audit-log');
+  api.use('iamdevan:audit-log');
   // api.use('clinical:verification');
 
   api.addFiles('tests/tinytest/audit-log-tests.js');

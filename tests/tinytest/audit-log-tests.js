@@ -1,4 +1,4 @@
-describe('devanb:meteor-audit-log', function () {
+describe('iamdevan:meteor-audit-log', function () {
 
   describe('user interface', function () {
     it.client('displays an audit log', function () {
