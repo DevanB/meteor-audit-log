@@ -1,46 +1,42 @@
-//@TODO: migrate searchFilter, typeFilter, beginDateFilter, and endDateFilter to reactiveVars
-Session.setDefault("searchFilter", '');
-Session.setDefault("typeFilter", '');
-
-// search window defaults to seven days in the past and one day in the future
-Session.setDefault("beginDateFilter", new Date(moment().subtract(7, "days")).toISOString());
-Session.setDefault("endDateFilter", new Date(moment().add(1, "days")).toISOString());
-
 Template.auditLog.onCreated(function(){
-  Meteor.subscribe('all-logs');
+  this.dict = new ReactiveDict();
+  this.dict.set('searchFilter', '');
+  this.dict.set('typeFilter', '');
+  this.dict.set('beginDateFilter', new Date(moment().subtract(7, 'days')).toISOString());
+  this.dict.set('endDateFilter', new Date(moment().add(1, 'days')).toISOString());
 });
 
-Template.auditLog.onRendered(function () {
-  Session.set("ribbonWidth", $('#ribbon').width());
+Template.auditLog.onRendered(function(){
+  this.subscribe('all-logs');
 });
 
 Template.auditLog.helpers({
   getSearchFilter: function () {
-    return Session.get('searchFilter');
+    return Template.instance().dict.get('searchFilter');
   },
   audit: function () {
     return Logs.find({
       $or: [
         {
           userName: {
-            $regex: Session.get('searchFilter'),
+            $regex: Template.instance().dict.get('searchFilter'),
             $options: 'i'
           }
         },
         {
           patientName: {
-            $regex: Session.get('searchFilter'),
+            $regex: Template.instance().dict.get('searchFilter'),
             $options: 'i'
           }
         }
       ],
       eventType: {
-        $regex: Session.get("typeFilter"),
+        $regex: Template.instance().dict.get('typeFilter'),
         $options: 'i'
       },
       timestamp: {
-        $lte: new Date(Session.get('endDateFilter')),
-        $gte: new Date(Session.get('beginDateFilter'))
+        $lte: new Date(Template.instance().dict.get('endDateFilter')),
+        $gte: new Date(Template.instance().dict.get('beginDateFilter'))
       }
     }, {
       sort: {
@@ -52,15 +48,14 @@ Template.auditLog.helpers({
 
 Template.auditLog.events({
   "keyup #searchFilter": function (event, template) {
-    Session.set("searchFilter", $('#searchFilter').val());
+    Template.instance().dict.set('searchFilter', $('#searchFilter').val());
   }
 });
 
 Template.entry.helpers({
   getHighlightColor: function () {
-    var auditLog = Session.get('AuditLogConfig');
-    if (auditLog) {
-      return "color:" + auditLog.highlightColor;
+    if (Meteor.settings.public.auditLogConfig) {
+      return "color:" + Meteor.settings.public.auditLogConfig.highlightColor;
     } else {
       return null;
     }

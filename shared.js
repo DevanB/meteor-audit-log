@@ -10,3 +10,12 @@ Logs.allow({
     return false;
   }
 });
+let layoutName = "";
+if(Meteor.settings.public.auditLogConfig) {
+  layoutName = Meteor.settings.public.auditLogConfig.layoutName
+};
+RouterLayer.route('/view-log', {
+  name: 'view-log',
+  template: 'logPage',
+  layout: layoutName || 'layout'
+});

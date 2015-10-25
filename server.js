@@ -3,8 +3,9 @@ Meteor.publish('all-logs', function () {
 });
 
 Meteor.startup(function () {
-  //@TODO: add option to/not to add init record on startup
-  Logger.logEvent("init", null, "System", null, null, null);
+  if (Meteor.settings.public.auditLogConfig && Meteor.settings.public.auditLogConfig.initRecordOnStart) {
+    Logger.logEvent("init", null, "System", null, null, null);
+  }
 });
 
 Meteor.methods({

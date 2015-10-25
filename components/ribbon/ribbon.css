@@ -1,19 +1,25 @@
 #ribbon{
+  display: flex;
+  justify-content: space-around;
   position: static;
-  width: 100%;
-  padding-top: 10px;
-  height: 60px;
+  /*width: 100%;*/
+  /*padding-top: 10px;*/
+  /*height: 60px;*/
   background-color: lightgray;
 }
 #ribbon input[type="date"]{
-  padding-left: 10px;
+  flex: 1 1 25%;
+  /*padding-left: 10px;*/
 }
 #ribbon select{
-  display: inline-block;
+  flex: 1 1 25%;
+  /*display: inline-block;*/
 }
 #ribbon #searchFilter{
+  flex: 1 1 25%;
   color: black;
 }
 .form-control{
-  display: inline-block !important;
+  flex: 1 1 25%;
+  /*display: inline-block !important;*/
 }

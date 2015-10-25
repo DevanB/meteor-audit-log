@@ -1,5 +1,5 @@
 Package.describe({
-  name: "devanb:audit-log",
+  name: "iamdevan:audit-log",
   summary: "Auditing and logging for Meteor.",
   version: "1.0.0",
   git: "https://github.com/devanb/meteor-audit-log",
@@ -13,6 +13,7 @@ Package.onUse(function(api) {
     'session',
     'templating',
     'ecmascript',
+    'reactive-dict',
     'nicolaslopezj:router-layer@0.0.11'
   ]);
   api.use([
@@ -20,10 +21,7 @@ Package.onUse(function(api) {
     'fortawesome:fontawesome@4.4.0',
   ], 'client');
 
-  api.addFiles([
-    'lib/Logger.js',
-    'lib/AuditLog.js'
-  ],['client', 'server']);
+  api.addFiles('lib/Logger.js', ['client', 'server']);
 
   api.addFiles('shared.js', ['client', 'server']);
   api.addFiles('server.js', 'server');
@@ -55,13 +53,13 @@ Npm.depends({
 });
 
 //fix all of this junk
-// Package.onTest(function (api) {
-//   api.use('tinytest');
-//
-//   api.use('momentjs:moment@2.10.6', 'client');
-//   api.use('fortawesome:fontawesome@4.4.0', 'client');
-//   api.use('clinical:hipaa-audit-log');
-//   api.use('clinical:verification');
-//
-//   api.addFiles('tests/tinytest/audit-log-tests.js');
-// });
+Package.onTest(function (api) {
+  api.use('tinytest');
+
+  api.use('momentjs:moment@2.10.6', 'client');
+  api.use('fortawesome:fontawesome@4.4.0', 'client');
+  api.use('devanb:audit-log');
+  // api.use('clinical:verification');
+
+  api.addFiles('tests/tinytest/audit-log-tests.js');
+});
