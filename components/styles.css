@@ -64,3 +64,39 @@
 #auditLog #auditLog{
   width: 100%;
 }
+
+#logPage{
+  background-color: white;
+  padding-top: 80px;
+}
+#logPage #logTitle{
+  left: 30px;
+  position: absolute;
+  text-align: left;
+}
+
+#ribbon{
+  display: flex;
+  justify-content: space-around;
+  position: static;
+  /*width: 100%;*/
+  /*padding-top: 10px;*/
+  /*height: 60px;*/
+  background-color: lightgray;
+}
+#ribbon input[type="date"]{
+  flex: 1 1 25%;
+  /*padding-left: 10px;*/
+}
+#ribbon select{
+  flex: 1 1 25%;
+  /*display: inline-block;*/
+}
+#ribbon #searchFilter{
+  flex: 1 1 25%;
+  color: black;
+}
+.form-control{
+  flex: 1 1 25%;
+  /*display: inline-block !important;*/
+}

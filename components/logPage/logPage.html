@@ -1,12 +1,24 @@
 <template name="logPage">
   <div id="logPage" class="page">
-    {{> ribbon}}
-
+    <aside id="ribbon" class="{{getRibbonClass}}">
+      <input type="text" name="searchFilter" id="searchFilter" class="{{getInputClass}}" value="{{getSearchFilter}}" placeholder="Search User">
+      <input type="date" id="beginDateInput" class="{{getInputClass}}" value="{{getBeginDate}}">
+      <input type="date" id="endDateInput" class="{{getInputClass}}" value="{{getEndDate}}">
+      <select id="actionFilter" name="actionFilter" class="{{getSelectClass}}">
+        <option id="filterCreatedButton">Created</option>
+        <option id="filterModifiedButton">Modified</option>
+        <option id="filterViewedButton">Viewed</option>
+        <option id="filterAllButton">All</option>
+      </select>
+    </aside>
     <div class="container">
       <div class="row">
-        {{> auditLog}}
+        <ul id="auditLog" class="list-group">
+          {{#each audit}}
+            {{> entry}}
+          {{/each}}
+        </ul>
       </div>
     </div>
-
   </div>
 </template>

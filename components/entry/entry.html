@@ -1,11 +1,3 @@
-<template name="auditLog">
-  <ul id="auditLog" class="list-group">
-    {{#each audit}}
-      {{> entry}}
-    {{/each}}
-  </ul>
-</template>
-
 <template name="entry">
   {{#if logMessageType 'init'}}
     <li class="auditItem list-group-item">

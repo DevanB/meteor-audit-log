@@ -3,7 +3,7 @@ Meteor.publish('all-logs', function () {
 });
 
 Meteor.startup(function () {
-  if (Meteor.settings.public.auditLogConfig && Meteor.settings.public.auditLogConfig.initRecordOnStart) {
+  if (!Meteor.settings.public.auditLogConfig || !Meteor.settings.public.auditLogConfig.initRecordOnStart === false) {
     Logger.logEvent("init", null, "System", null, null, null);
   }
 });
