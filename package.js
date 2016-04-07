@@ -13,7 +13,7 @@ Package.onUse(function(api) {
     'templating',
     'ecmascript',
     'reactive-dict',
-    'nicolaslopezj:router-layer@0.0.11'
+    'kadira:flow-router'
   ]);
   api.use([
     'momentjs:moment@2.10.6',

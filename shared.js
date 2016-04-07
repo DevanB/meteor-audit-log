@@ -14,8 +14,9 @@ let layoutName = "";
 if(Meteor.settings.public.auditLogConfig) {
   layoutName = Meteor.settings.public.auditLogConfig.layoutName
 };
-RouterLayer.route('/view-log', {
-  name: 'view-log',
-  template: 'logPage',
-  layout: layoutName || 'layout'
+FlowRouter.route('/admin/view-logs', {
+  name: 'view-logs',
+  action() {
+    BlazeLayout.render(layoutName || 'layout', { template: 'logPage' });
+  }
 });
